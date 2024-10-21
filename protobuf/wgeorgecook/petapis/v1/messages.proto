@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package wgeorgecook.petapis.v1;
+option go_package = "petapisv1";
+
+import "google/protobuf/timestamp.proto";
+
+enum Diet {
+    // DietUnspecified is used who no specific Diet was provided.
+    DIET_UNSPECIFIED = 0;
+    // DietNoRestrictions is used to designate this pet can eat anything freely.
+    DIET_NO_RESTRICTIONS = 1;
+    // DietGrainFree indicates this Pet should only eat grain free food.
+    DIET_GRAIN_FREE = 2;
+    // DietRaw indicates this pet should only eat raw foods.
+    DIET_RAW = 3;
+}
+
+enum FriendlyWith {
+    // FriendlyWithUnspecified is used when no specific FriendlyWith is provided.
+    FRIENDLY_WITH_UNSPECIFIED = 0;
+    // FriendlyWithLittleDogs means this pet is friendly with little dogs.
+    FRIENDLY_WITH_LITTLE_DOGS = 1;
+    // FriendlyWithBigDogs means this pet is friendly with big dogs.
+    FRIENDLY_WITH_BIG_DOGS = 2;
+    // FriendlyWithCats means this pet is friendly with cats.
+    FRIENDLY_WITH_CATS = 3;
+    // FriendlyWithYoungChildren means this pet is friendly with younger children.
+    FRIENDLY_WITH_YOUNG_CHILDREN = 4;
+    // FriendlyWithOlderChilder means this pet is friendly with older children.
+    FRIENDLY_WITH_OLDER_CHILDREN = 5;
+}
+
+message Pet {
+    // Name is the how we call this pet.
+    string name = 1;
+    // Birthdate is when this pet was born.
+    google.protobuf.Timestamp birthdate = 2;
+    // Description is how to desribe this pet.
+    string desciption = 3;
+    // Diet is whether this pet adheres to a special diet.
+    Diet diet = 4;
+    // FriendlyWith is all things this pet is friendly with.
+    repeated FriendlyWith friendly_with = 5;
+    // PictureURL is the URL to the resource where we can fetch this pet's photo.
+    string picture_url = 6;
+}

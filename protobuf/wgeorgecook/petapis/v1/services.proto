@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package wgeorgecook.petapis.v1;
+
+import "wgeorgecook/petapis/v1/messages.proto";
+import "wgeorgecook/petapis/v1/queries.proto";
+
+option go_package = "petapisv1";
+
+// GetPetRequest accepts a request ID and the data you wish to query
+// for in the columns to query against.
+message GetPetRequest {
+    // RequestId is the tracing ID for this request.
+    string request_id = 1;
+    // Query is the fields and values to query against. 
+    repeated QueryField query = 2;
+}
+
+// GetPetResponse returns all pets found for the provided query (0 or more)
+// and an error.
+message GetPetResponse {
+    // Pets are the returned Pets found for the provided query.
+    repeated Pet pets = 1;
+}

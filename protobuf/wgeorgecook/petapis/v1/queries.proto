@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package wgeorgecook.petapis.v1;
+option go_package = "petapisv1";
+
+// QueryField are the columns in the database the user
+// is allowed to query against.
+enum QueryField {
+    // QueryFieldUnspecified is a no-op.
+    QUERY_FIELD_UNSPECIFIED = 0;
+    // QueryFieldName allows for querying against Pets via name.
+    QUERY_FIELD_NAME = 1;
+    // QueryFieldBirthdate allows for querying against Pets via birthdate.
+    QUERY_FIELD_BIRTHDATE = 2;
+    // QueryFieldDescription allows for querying against Pets via description.
+    QUERY_FIELD_DESCRIPTION = 3;
+    // QueryFieldDiet allows for querying against Pets via diet.
+    QUERY_FIELD_DIET = 4;
+    // QueryFieldFriendlyWith allows for querying against Pets via friendly_with.
+    QUERY_FIELD_FRIENDLY_WITH = 5;
+}
+
+// Query is the way in which consumers can access the database. An example
+// query takes this shape:
+// Query{
+//      key: QueryField{
+//          QUERY_FIELD_NAME
+//          },
+//      value: "Fido",
+// }
+message Query {
+    // Key is the database column to query against.
+    QueryField key = 1;
+    // Value is the data to query with,
+    string value = 2;
+}
