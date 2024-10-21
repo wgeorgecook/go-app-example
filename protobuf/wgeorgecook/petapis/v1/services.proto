@@ -7,18 +7,27 @@ import "wgeorgecook/petapis/v1/queries.proto";
 
 option go_package = "petapisv1";
 
-// GetPetRequest accepts a request ID and the data you wish to query
+// GetPetsRequest accepts a request ID and the data you wish to query
 // for in the columns to query against.
-message GetPetRequest {
+message GetPetsRequest {
     // RequestId is the tracing ID for this request.
     string request_id = 1;
     // Query is the fields and values to query against. 
     repeated QueryField query = 2;
 }
 
-// GetPetResponse returns all pets found for the provided query (0 or more)
+// GetPetsResponse returns all pets found for the provided query (0 or more)
 // and an error.
-message GetPetResponse {
+message GetPetsResponse {
     // Pets are the returned Pets found for the provided query.
     repeated Pet pets = 1;
+}
+
+// PetService holds all endpoints related to the PetApis.
+service PetService {
+  // GetPets retreives a list of pets corresponding to the provided query 
+  // in the GetPetsRequest. Potential errors include 
+  // NOT_FOUND if no Pet is found with provided Query
+  // INVALID_ARGUMENT if provided Query is unspecified or incorrectly formatted
+  rpc GetPets (GetPetsRequest) returns (GetPetsResponse) {}
 }
