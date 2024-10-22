@@ -1,0 +1,9 @@
+services:
+  data-access:
+    build: 
+      context: ./data-access/
+      dockerfile: ./build/Dockerfile
+    image: williamcook/go-example-app:data-access-${TAG_VERSION}
+    ports:
+      - "8088:8088"
+    
