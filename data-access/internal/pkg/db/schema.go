@@ -29,10 +29,11 @@ const (
 // Pet is the database representation of a
 // petapisv1.Pet type.
 type Pet struct {
-	Name         string
-	Birthdate    time.Time
-	Description  string
-	Diet         string
-	FriendlyWith []string
-	PictureUrl   string
+	ID           int64     `db:"id"`
+	Name         string    `db:"name"`
+	Birthdate    time.Time `db:"birthdate"`
+	Description  string    `db:"description"`
+	Diet         string    `db:"diet"`
+	FriendlyWith []string  `db:"friendly_with"`
+	PictureUrl   string    `db:"picture_url"`
 }
