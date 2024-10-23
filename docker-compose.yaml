@@ -6,6 +6,8 @@ services:
     image: williamcook/go-example-app:data-access-${TAG_VERSION}
     ports:
       - "8088:8088"
+    environment:
+    - MIGRATION_DIRECTION=${MIGRATION_DIRECTION}
   postgres:
     image: postgres
     restart: always
