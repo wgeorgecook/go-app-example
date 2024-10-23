@@ -32,7 +32,7 @@ type Pet struct {
 	Name         string
 	Birthdate    time.Time
 	Description  string
-	Diet         diet
-	FriendlyWith friendlyWith
+	Diet         string
+	FriendlyWith []string
 	PictureUrl   string
 }
