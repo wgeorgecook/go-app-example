@@ -3,7 +3,7 @@ package db
 import "time"
 
 // diet is the database representation
-// the a petsapisv1.Diet
+// of a petsapisv1.Diet type.
 type diet int32
 
 const (
@@ -14,7 +14,7 @@ const (
 )
 
 // friendlyWith is the database representation
-// the a petsapisv1.FriendlyWith
+// of a petsapisv1.FriendlyWith type.
 type friendlyWith int32
 
 const (
@@ -27,7 +27,7 @@ const (
 )
 
 // Pet is the database representation of a
-// petapisv1.Pet.
+// petapisv1.Pet type.
 type Pet struct {
 	Name         string
 	Birthdate    time.Time
