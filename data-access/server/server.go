@@ -49,5 +49,7 @@ func Shutdown() {
 		return
 	}
 
+	// GracefulStop blocks until all pending RPCs are complete
+	// so do not run this in a goroutine
 	srv.GracefulStop()
 }
