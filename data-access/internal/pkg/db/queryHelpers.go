@@ -6,7 +6,7 @@ import (
 	"github.com/jackc/pgx/v5"
 )
 
-func getAllPets(conn *pgx.Conn) ([]Pet, error) {
+func getAllPets() ([]Pet, error) {
 	rows, err := conn.Query(context.Background(), "SELECT * FROM pets")
 	if err != nil {
 		return nil, err
