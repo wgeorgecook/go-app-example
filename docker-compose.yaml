@@ -5,7 +5,7 @@ services:
       dockerfile: ./build/Dockerfile
     image: williamcook/go-example-app:data-access-${TAG_VERSION}
     ports:
-      - "8088:8088"
+      - "127.0.0.1:8088:8088"
     environment:
     - MIGRATION_DIRECTION=${MIGRATION_DIRECTION}
   postgres:
